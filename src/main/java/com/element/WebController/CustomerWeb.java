@@ -51,6 +51,7 @@ public class CustomerWeb {
 	@RequestMapping(value="/getcustomer" ,method=RequestMethod.GET)
     public  @ResponseBody List<DealEntity> getCustomer(){
     	
+		System.out.println("getCustomer");
 		return customerService.getCustomer();
 		
 	}
