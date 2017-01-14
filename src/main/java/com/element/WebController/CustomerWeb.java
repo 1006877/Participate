@@ -52,8 +52,8 @@ public class CustomerWeb {
 	@RequestMapping(value="/getcustomer" ,method=RequestMethod.GET)
     public  @ResponseBody List<DealEntity> getCustomer(){
     	
-	    List<DealEntity> customerListId = new ArrayList<DealEntity>();
-	    customerListId = customerService.getCustomer();
+	    List<DealEntity> customerList = new ArrayList<DealEntity>();
+	    customerList = customerService.getCustomer();
 	    
 		return customerList;
 		
