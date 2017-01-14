@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -51,8 +52,10 @@ public class CustomerWeb {
 	@RequestMapping(value="/getcustomer" ,method=RequestMethod.GET)
     public  @ResponseBody List<DealEntity> getCustomer(){
     	
-		System.out.println("getCustomer");
-		return customerService.getCustomer();
+	    List<DealEntity> customerList = new ArrayList<DealEntity>();
+	    customerList = customerService.getCustomer();
+	    
+		return customerList;
 		
 	}
    
