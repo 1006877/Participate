@@ -55,7 +55,7 @@ public class CustomerWeb {
 	    List<DealEntity> customerListId = new ArrayList<DealEntity>();
 	    customerListId = customerService.getCustomer();
 	    
-		return customerList;
+		return customerListId;
 		
 	}
    
