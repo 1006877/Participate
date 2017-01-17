@@ -24,10 +24,7 @@ public class controller {
     public  List<DealEntity> getCustomer(){
     	
     	List<DealEntity> custList = customerService.getCustomer();
-    	
-    	
-    	
-		return custList;
+    	return custList;
 		
 	}
    

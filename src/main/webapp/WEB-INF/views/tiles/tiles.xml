@@ -11,6 +11,14 @@
  		<put-attribute name="body" value="/WEB-INF/views/Myjsp/Home.jsp" />
 </definition>
 	
+<definition name="hello" extends="basic.home">
+ 		<put-attribute name="body" value="/WEB-INF/views/Myjsp/hello.jsp" />
+</definition>
+	
+<definition name="admin" extends="basic.home">
+ 		<put-attribute name="body" value="/WEB-INF/views/Myjsp/admin.jsp" />
+</definition>
+		
 
 <definition name="basic.home" template="/WEB-INF/views/tiles/layout/BasicLayout.jsp">
 

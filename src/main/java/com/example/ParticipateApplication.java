@@ -6,12 +6,17 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
+import com.element.config.EdbConfig;
+import com.element.config.SecurityConfig;
+
 @Configuration
+@Import({ SecurityConfig.class,EdbConfig.class })
 @EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 @EnableAsync(proxyTargetClass=true)
 @ComponentScan(basePackages={"com.element"})

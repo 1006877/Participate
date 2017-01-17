@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List; 
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.element.edb.entity.DealEntity;
 import com.element.service.CustomerService;
@@ -49,6 +50,44 @@ public class CustomerWeb {
 		
 	}
 	
+	
+	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
+	public ModelAndView welcomePage() {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Spring Security Hello World");
+		model.addObject("message", "This is welcome page!");
+		model.setViewName("hello");
+		return model;
+
+	}
+
+	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
+	public ModelAndView adminPage() {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Spring Security Hello World");
+		model.addObject("message", "This is protected page - Admin Page!");
+		model.setViewName("admin");
+
+		return model;
+
+	}
+
+	@RequestMapping(value = "/dba**", method = RequestMethod.GET)
+	public ModelAndView dbaPage() {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Spring Security Hello World");
+		model.addObject("message", "This is protected page - Database Page!");
+		model.setViewName("admin");
+
+		return model;
+
+	}
+	
+	
+	
 	@RequestMapping(value="/getcustomer" ,method=RequestMethod.GET)
     public  @ResponseBody List<DealEntity> getCustomer(){
     	
@@ -68,9 +107,9 @@ public class CustomerWeb {
     	
     	int sftpPort  =22;
     	
-    	String hostName = "vsplbobjwb01d";
-    	String userName = "clarus";
-    	String passwords = "clarusdev123";
+    	String hostName = "test.rebex.net";
+    	String userName = "demo";
+    	String passwords = "password";
     	String ftp_src_folder = "/opt/clarus/apache-tomcat-7.0.72/logs";
     	String ftp_src_file  ="bobjRestServices-dev.log";
     	
@@ -78,14 +117,25 @@ public class CustomerWeb {
          Channel channel = null;
          ChannelSftp channelSftp = null;
          InputStream InputStream = null;
-    	
+         
+        
     	try {
     		
     		session = jsch.getSession(userName, hostName, sftpPort);
-    		session.setPassword(passwords);
+    		
     		  
     		  java.util.Properties config = new java.util.Properties();
-              config.put("StrictHostKeyChecking", "no");
+    		  
+    		/*  config.put("cipher.s2c", 
+    	                 "aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc");
+    	      config.put("cipher.c2s",
+    	                 "aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc");*/
+    	      config.put("kex", "ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521");
+    	    	
+    	      
+    	 
+          
+              session.setPassword(passwords);
               session.setConfig(config);
               session.connect();
               logger.info("Host connected.");
