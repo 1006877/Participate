@@ -50,6 +50,19 @@ public class CustomerWeb {
 		
 	}
 	
+
+	@RequestMapping(value="/home/home1" ,method=RequestMethod.GET)
+    public  String home1(){
+  
+	logger.debug("getWelcome is executed!");		
+	logger.error("This is Error message");
+		
+	
+	
+		return "home";
+		
+	}
+	
 	
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
