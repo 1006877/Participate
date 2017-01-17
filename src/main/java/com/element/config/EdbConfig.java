@@ -10,18 +10,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-
-import com.example.ParticipateApplication;
 
 
 @Configuration
@@ -54,8 +53,23 @@ public class EdbConfig   {
 
 		return em;
 	}
+	
+	
+	@Bean
+	public DataSource dataSource() {
 
-	@Bean(name="datasourceEdb")
+		// no need shutdown, EmbeddedDatabaseFactoryBean will take care of this
+		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+		EmbeddedDatabase db = builder
+			.setType(EmbeddedDatabaseType.HSQL) //.H2 or .DERBY
+			.addScript("db/sql/create-db.sql")
+			.addScript("db/sql/insert-data.sql")
+			.build();
+		return db;
+	}
+	
+
+	/*@Bean(name="datasourceEdb")
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource driverManagerDataSource= new DriverManagerDataSource();
 		driverManagerDataSource.setDriverClassName("com.sybase.jdbc3.jdbc.SybDriver");
@@ -64,7 +78,7 @@ public class EdbConfig   {
 		driverManagerDataSource.setUsername("gen_funding_auth");
 	    return driverManagerDataSource;
 	}
-	
+	*/
 	@Bean(name = "jdbcEdb")
     @Qualifier("datasourceEdb")
     public JdbcTemplate getEdbJdbcTemplate(DataSource datasourceEdb){
