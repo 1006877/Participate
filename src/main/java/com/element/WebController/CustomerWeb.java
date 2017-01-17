@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.element.edb.entity.DealEntity;
+import com.element.edb.entity.Users;
 import com.element.service.CustomerService;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
@@ -89,9 +89,9 @@ public class CustomerWeb {
 	
 	
 	@RequestMapping(value="/getcustomer" ,method=RequestMethod.GET)
-    public  @ResponseBody List<DealEntity> getCustomer(){
+    public  @ResponseBody List<Users> getCustomer(){
     	
-	    List<DealEntity> customerList = new ArrayList<DealEntity>();
+	    List<Users> customerList = new ArrayList<Users>();
 	    customerList = customerService.getCustomer();
 	    
 		return customerList;

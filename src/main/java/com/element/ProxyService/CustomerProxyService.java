@@ -7,7 +7,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.element.edb.entity.DealEntity;
+import com.element.edb.entity.Users;
 import com.element.service.CustomerService;
 
 @Service("customerProxyService")
@@ -21,15 +21,15 @@ public class CustomerProxyService implements CustomerService{
 	private Environment env;
 	
 	@Override
-	public List<DealEntity> getCustomer() {
+	public List<Users> getCustomer() {
 		
 		return restTemplate.getForObject(env.getProperty("Participation.BeginUrl").concat("getcustomer"), List.class);
 	}
 
 	@Override
-	public DealEntity getCustomerByName(String name) {
+	public Users getCustomerByName(String name) {
 		
-		return restTemplate.getForObject(env.getProperty("Participation.BeginUrl").concat("getcustomerByName?name="+name ), DealEntity.class);
+		return restTemplate.getForObject(env.getProperty("Participation.BeginUrl").concat("getcustomerByName?name="+name ), Users.class);
 	}
 
 	

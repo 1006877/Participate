@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.element.edb.entity.DealEntity;
+import com.element.edb.entity.Users;
 import com.element.repository.CustomerRepository;
 import com.element.service.CustomerService;
 
@@ -18,15 +18,16 @@ public class CustomerServiceImpl implements CustomerService  {
 	
 	
 	@Override
-	public List<DealEntity> getCustomer() {
-		return (List<DealEntity>) customerRespository.findAll();
+	public List<Users> getCustomer() {
+		return (List<Users>) customerRespository.findAll();
 	}
 
 
 	@Override
-	public DealEntity getCustomerByName(String name) {
+	public Users getCustomerByName(String name) {
 	
-		return  customerRespository.findOne(new Long(1));
+		/*return  customerRespository.findOne(new Long(1));*/
+		return null;
 	}
 
 }

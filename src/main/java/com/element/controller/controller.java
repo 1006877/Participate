@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.element.edb.entity.DealEntity;
+import com.element.edb.entity.Users;
 import com.element.service.CustomerService;
 
 @RestController
@@ -21,16 +21,19 @@ public class controller {
 	private CustomerService customerService;
 	
 	@RequestMapping(value="/getcustomer" ,method=RequestMethod.GET)
-    public  List<DealEntity> getCustomer(){
+    public  List<Users> getCustomer(){
     	
-    	List<DealEntity> custList = customerService.getCustomer();
-    	return custList;
+    	List<Users> custList = customerService.getCustomer();
+    	
+    	
+    	
+		return custList;
 		
 	}
    
     
     @RequestMapping(value="/getcustomerByName" ,method=RequestMethod.GET)
-    public DealEntity getCustomerByName(@RequestParam String name){
+    public Users getCustomerByName(@RequestParam String name){
 		return customerService.getCustomerByName(name);
 		
 	}

@@ -2,13 +2,13 @@ package com.element.service;
 
 import java.util.List;
 
-import com.element.edb.entity.DealEntity;
+import com.element.edb.entity.Users;
 
 public interface CustomerService {
 
-	List<DealEntity> getCustomer();
+	List<Users> getCustomer();
 
-	DealEntity getCustomerByName(String name);
+	Users getCustomerByName(String name);
 	
 	
 
