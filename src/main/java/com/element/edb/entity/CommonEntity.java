@@ -16,9 +16,9 @@ import javax.persistence.Transient;
  */
 @MappedSuperclass
 /*@EntityListeners({CommonAuditListener.class})*/
-public class CommonEntity implements /*ICommonAudit,*/ Serializable{
+public class CommonEntity {
 
-	private static final long serialVersionUID = 1L;
+	/*private static final long serialVersionUID = 1L;
 	
 	@Column(length=30, name="audit_insert_login", updatable=false)
 	private String auditInsertLogin;
@@ -40,13 +40,13 @@ public class CommonEntity implements /*ICommonAudit,*/ Serializable{
 	@Column(length=30, name="audit_update_pgm", insertable=false)
 	private String auditUpdateProgramName;
 	
-	/*private AuditObject insert;
-	private AuditObject update;*/
+	private AuditObject insert;
+	private AuditObject update;
 	
 	
-	/**
+	*//**
 	 * @return login user
-	 */
+	 *//*
 	public String getAuditInsertLogin() {
 		return auditInsertLogin;
 	}
@@ -68,33 +68,33 @@ public class CommonEntity implements /*ICommonAudit,*/ Serializable{
 	public void setAuditUpdateProgramName(String auditUpdateProgramName) {
 		this.auditUpdateProgramName = auditUpdateProgramName;
 	}
-	/**
+	*//**
 	 * @param login
-	 */
+	 *//*
 	public void setAuditInsertLogin(String auditInsertLogin) {
 		this.auditInsertLogin = auditInsertLogin;
 	}
-	/**
+	*//**
 	 * @return the date
-	 */
+	 *//*
 	public Date getAuditInsertDate() {
 		return auditInsertDate;
 	}
-	/**
+	*//**
 	 * @param date
-	 */
+	 *//*
 	public void setAuditInsertDate(Date auditInsertDate) {
 		this.auditInsertDate = auditInsertDate;
 	}
-	/**
+	*//**
 	 * @return program from which the record is updating.
-	 */
+	 *//*
 	public String getAuditInsertProgramName() {
 		return auditInsertProgramName;
 	}
-	/**
+	*//**
 	 * @param programName
-	 */
+	 *//*
 	public void setAuditInsertProgramName(String auditInsertProgramName) {
 		this.auditInsertProgramName = auditInsertProgramName;
 	}
@@ -103,9 +103,9 @@ public class CommonEntity implements /*ICommonAudit,*/ Serializable{
 	public void setAuditAtUpdate() {  
         this.auditUpdateDate = new Date();
         this.auditUpdateProgramName = getAuditProgram();
-        /**
+        *//**
 		 * login method to be implemented
-		 */
+		 *//*
 		//this.auditInsertLogin =auth.getPrincipal().toString();
         this.auditUpdateLogin="gen_funding_auth";
     } 
@@ -114,22 +114,22 @@ public class CommonEntity implements /*ICommonAudit,*/ Serializable{
     public void setAuditAtInsert() {  
         this.auditInsertDate = new Date();
         this.auditInsertProgramName = getAuditProgram();
-        /**
+        *//**
 		 * login method to be implemented
-		 */
+		 *//*
 		//this.auditInsertLogin =auth.getPrincipal().toString();
         this.auditInsertLogin="gen_funding_auth";
     } 
 	
-	/**
+	*//**
 	 * Constructor to initialize the fields.
-	 */
+	 *//*
 	public CommonEntity() {
 		super();
-		/*this.insert = new AuditObject();
-		this.update = new AuditObject();*/
+		this.insert = new AuditObject();
+		this.update = new AuditObject();
 	}
-	/**
+	*//**
 	 * @return the insert
 	 *//*
 	@Embedded
@@ -166,12 +166,12 @@ public class CommonEntity implements /*ICommonAudit,*/ Serializable{
 	 *//*
 	public void setUpdate(AuditObject update) {
 		this.update = update;
-	}*/
+	}
 
 	@Transient
 	public String getAuditProgram() {
 		return "Participation-Web";
 	}
-	
+	*/
 	
 }
