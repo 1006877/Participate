@@ -1,5 +1,7 @@
 package com.element.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,10 +14,22 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
+	DataSource dataSource;
+
+	
+	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-	  auth.inMemoryAuthentication().withUser("users").password("123456").roles("USER");
+		
+     auth.jdbcAuthentication().dataSource(dataSource)
+		.usersByUsernameQuery(
+				"select username,password,enabled from users where username=?")
+		.authoritiesByUsernameQuery(
+		"select username, role from user_roles where username=?");
+	
+     
+     /* auth.inMemoryAuthentication().withUser("users").password("123456").roles("USER");
 	  auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
-	  auth.inMemoryAuthentication().withUser("dba").password("123456").roles("DBA");
+	  auth.inMemoryAuthentication().withUser("dba").password("123456").roles("DBA");*/
 	}
 
 	@Override
