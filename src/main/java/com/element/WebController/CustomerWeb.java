@@ -1,10 +1,12 @@
 package com.element.WebController;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +24,8 @@ import com.element.edb.entity.Users;
 import com.element.service.CustomerService;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.HostKey;
+import com.jcraft.jsch.HostKeyRepository;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
@@ -116,37 +120,48 @@ public class CustomerWeb {
     @ResponseBody
     public String getCustomerByName(){
     	
+    	File file = new File("C:/Users/TiwariV.FLEET/Desktop/hostKey.txt");
+    	
+    	String hostpublicKey = "demo.wftpserver.com ssh-rsa fc:92:54:e6:06:04:1a:97:8c:8c:cb:a7:72:e0:86:52";
+    	
     	 JSch jsch = new JSch();
     	
-    	int sftpPort  =22;
+    	int sftpPort  =2222;
     	
-    	String hostName = "test.rebex.net";
-    	String userName = "demo";
-    	String passwords = "password";
-    	String ftp_src_folder = "/opt/clarus/apache-tomcat-7.0.72/logs";
-    	String ftp_src_file  ="bobjRestServices-dev.log";
+    	String hostName = "demo.wftpserver.com";
+    	String userName = "demo-user";
+    	String passwords = "demo-user";
+    	String ftp_src_folder = "/download";
+    	String ftp_src_file  ="version.txt";
     	
     	 Session session = null;
          Channel channel = null;
          ChannelSftp channelSftp = null;
          InputStream InputStream = null;
+       
          
         
     	try {
-    		
+    	   
+    		/*InputStream inputStream1 = new FileInputStream(file);
+    		jsch.setKnownHosts(new ByteArrayInputStream(hostpublicKey.getBytes()));*/
     		session = jsch.getSession(userName, hostName, sftpPort);
     		
     		  
     		  java.util.Properties config = new java.util.Properties();
+    		config.put("StrictHostKeyChecking", "no");
     		  
     		/*  config.put("cipher.s2c", 
     	                 "aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc");
     	      config.put("cipher.c2s",
     	                 "aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc");*/
-    	      config.put("kex", "ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521");
-    	    	
-    	      
-    	 
+    	     /* config.put("kex", "ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521");
+    	    	*/
+    		  config.put("kex", "diffie-hellman-group1-sha1,diffie-hellman-group-exchange-sha1");
+    		/*  config.put("cipher.s2c",  "aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc");
+    		  config.put("cipher.c2s",  "aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc");
+    		       */      
+
           
               session.setPassword(passwords);
               session.setConfig(config);
@@ -167,7 +182,21 @@ public class CustomerWeb {
 			 logger.error("Error",new Exception(e3));
 			 }
     	finally{
-
+    		
+    		HostKeyRepository hkr=jsch.getHostKeyRepository();
+    		 HostKey[] hks=hkr.getHostKey();
+    		
+    		if(hks!=null){
+    			System.out.println("Host keys in "+hkr.getKnownHostsRepositoryID());
+    			for(int i=0; i<hks.length; i++){
+    			  HostKey hk=hks[i];
+    			  System.out.println(hk.getHost()+" "+
+    					     hk.getType()+" "+
+    					     hk.getFingerPrint(jsch));
+    			}
+    			System.out.println("");
+    		      }
+    		
             channelSftp.exit();
             System.out.println("sftp Channel exited.");
             channel.disconnect();
@@ -178,7 +207,7 @@ public class CustomerWeb {
     	
     	
     	 StringBuilder sb = new StringBuilder();
-    	 
+    	/* 
     	FileReader file = null;
     	try {
     		file = new FileReader("C:/tmp/rest-demo.log");
@@ -186,8 +215,8 @@ public class CustomerWeb {
     		
     		e.printStackTrace();
     	}
-    	
-    	BufferedReader textReader  = new BufferedReader(file);
+    	*/
+    	BufferedReader textReader  = new BufferedReader(new InputStreamReader(InputStream));
     	
   	  String line = null;
 	try {

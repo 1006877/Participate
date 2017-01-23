@@ -1,7 +1,7 @@
 CREATE TABLE users (
   user_id   INTEGER PRIMARY KEY,
   username VARCHAR(30),
-  password  VARCHAR(50),
+  password  VARCHAR(100),
   enabled  BOOLEAN
  );
  
