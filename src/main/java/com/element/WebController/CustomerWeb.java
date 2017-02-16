@@ -46,7 +46,7 @@ public class CustomerWeb {
     public  String home(){
   
 	logger.debug("getWelcome is executed!");		
-	logger.error("This is Welcome page");
+	logger.error("This is Welcome page");  logger.debug("getWelcome!");
 		
 	
 	
