@@ -44,9 +44,16 @@ public class CustomerWeb {
 	
 	@RequestMapping(value="/home" ,method=RequestMethod.GET)
     public  String home(){
+		
+		String home = "baby";
+		
+		if(home =="baby"){
+			System.out.println("Vishal");
+		}
+		
   
-	logger.debug("getWelcome is executed!");		
-	logger.error("This is Welcome page");  logger.debug("getWelcome!");
+	logger.debug("getWelcome is executed!");	
+	logger.error("This is Welcome page");logger.debug("getWelcome!");
 		
 	
 	

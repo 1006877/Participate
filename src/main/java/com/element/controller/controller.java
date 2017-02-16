@@ -24,7 +24,7 @@ public class controller {
     public  List<Users> getCustomer(){
     	
     	List<Users> custList = customerService.getCustomer();
-    	
+    	ClassLoader name  = controller.class.getClass().getClassLoader();
     	
     	
 		return custList;
