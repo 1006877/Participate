@@ -48,7 +48,8 @@ public class CustomerWeb {
 		
 		
 		
-  
+                
+	        logger.debug("getWelcome!");
 		logger.error("This is Welcome page");logger.debug("getWelcome!");
 		
 	
