@@ -49,7 +49,7 @@ public class CustomerWeb {
 		
 		
   
-	logger.debug("getWelcome is executed!");	
+		
 	logger.error("This is Welcome page");logger.debug("getWelcome!");
 		
 	
