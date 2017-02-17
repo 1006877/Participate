@@ -52,7 +52,7 @@ public class CustomerWeb {
 	        logger.debug("getWelcome!");
 	        logger.debug("getWelcome!");
 	        System.out.println("Vishal");
-		logger.error("This is Welcome page");
+		logger.error("This is Welcome page");logger.debug("getWelcome!");
 		
 	
 	
