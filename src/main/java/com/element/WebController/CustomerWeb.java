@@ -48,7 +48,7 @@ public class CustomerWeb {
 		
 		
 		
-                logger.debug("mostWelcome!");
+                logger.debug("mostWelcomeVishal!");
 	        logger.debug("getWelcome!");
 	        System.out.println("Vishal");
 		logger.error("This is Welcome page");
