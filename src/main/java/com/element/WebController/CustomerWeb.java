@@ -48,7 +48,7 @@ public class CustomerWeb {
 		
 		
 		
-                logger.debug("mostlyHumble!");
+                logger.debug("most!");
 	        logger.debug("getWelcome!");
 	        
 		
