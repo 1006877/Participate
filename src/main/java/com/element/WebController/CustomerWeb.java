@@ -50,7 +50,7 @@ public class CustomerWeb {
 		
                 logger.debug("mostHappy!");
 	        logger.debug("getWelcome!");
-	        System.out.println("VishalDude");
+	        
 		
 		
 	
