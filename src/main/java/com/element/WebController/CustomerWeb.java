@@ -48,7 +48,7 @@ public class CustomerWeb {
 		
 		
 		
-                logger.debug("VishalpikuTiwari!");
+                logger.debug("Vishal!");
 	        logger.debug("getWelcome!");
 	        
 		
