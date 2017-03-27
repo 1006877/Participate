@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,6 +37,15 @@ public class controller {
     public Users getCustomerByName(@RequestParam String name){
 		return customerService.getCustomerByName(name);
 		
+	}
+   
+    
+    @RequestMapping(value="/customerSave" ,method=RequestMethod.POST)
+    public  Users customerSave(@RequestBody Users user){
+    	
+    	return customerService.customerSave(user);
+    	
+    	
 	}
    
 	

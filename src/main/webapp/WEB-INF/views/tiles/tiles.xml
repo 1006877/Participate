@@ -8,7 +8,7 @@
 <tiles-definitions>
 
 <definition name="home" extends="basic.home">
- 		<put-attribute name="body" value="/WEB-INF/views/Myjsp/Home.jsp" />
+ 		<put-attribute name="body" value="/WEB-INF/views/Myjsp/AddUser.jsp" />
 </definition>
 	
 <definition name="hello" extends="basic.home">

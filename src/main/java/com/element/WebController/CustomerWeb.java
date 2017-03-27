@@ -1,9 +1,7 @@
 package com.element.WebController;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -15,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -120,6 +119,29 @@ public class CustomerWeb {
 		
 	}
    
+	
+	
+	 @RequestMapping(value="/customerSave" ,method=RequestMethod.POST)
+	    public @ResponseBody Users customerSave(@RequestBody Users user){
+		 user.setEnabled(true);
+	    
+		/* UserRoles userRole = new UserRoles();
+		 userRole.setUsername(user.getUsername());  
+		 userRole.setRole("ROLE_USER");
+		 user.setUserRoles(userRole);*/
+		
+		 user.setEnabled(true);
+		/* userRole.setUser_role_id(3);*/
+		
+		 
+		/* ModelAndView mav = new ModelAndView();
+		 mav.setViewName("hello");*/
+	      
+	    	return  customerService.customerSave(user);
+	    	
+		}
+	
+	
     
     @RequestMapping(value="/getLogTextFile" ,method=RequestMethod.GET,produces = "text/plain")
     @ResponseBody

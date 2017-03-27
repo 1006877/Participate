@@ -9,6 +9,8 @@ public interface CustomerService {
 	List<Users> getCustomer();
 
 	Users getCustomerByName(String name);
+
+	Users customerSave(Users user);
 	
 	
 

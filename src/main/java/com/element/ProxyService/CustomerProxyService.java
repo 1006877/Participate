@@ -33,6 +33,13 @@ public class CustomerProxyService implements CustomerService{
 	}
 
 	
+	@Override
+	public Users customerSave(Users user) {
+		
+		return restTemplate.postForObject(env.getProperty("Participation.BeginUrl").concat("customerSave"),user, Users.class);
+	}
+
+	
 	
 	
 }

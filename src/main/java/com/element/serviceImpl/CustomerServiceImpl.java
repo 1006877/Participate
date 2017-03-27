@@ -30,4 +30,11 @@ public class CustomerServiceImpl implements CustomerService  {
 		return null;
 	}
 
+
+	@Override
+	public Users customerSave(Users user) {
+		
+		return customerRespository.save(user);
+	}
+
 }
