@@ -46,10 +46,10 @@ public class CustomerWeb {
 		
 		
 		
-		 logger.debug("Vishal bhai accha hu!");
-                logger.debug("Vishal Tiwari!");
+		 logger.debug("Vishal bhai!");
+                
 	        logger.debug("getWelcome!");
-	        
+	         logger.debug("Vishal hu me!");
 		
 		
 	
