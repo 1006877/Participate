@@ -47,9 +47,9 @@ public class CustomerWeb {
 		
 		
 		 
-                logger.debug("Vishal Tiwari!");
+                logger.debug("Vishal Tiwari! My sex with woowm");
 	        logger.debug("getWelcome!");
-	        logger.debug("getWelcome bhaag sale!");
+	        logger.debug("getWelcome bhaag sale! kaha be chutoye");
 	        
 		
 		
