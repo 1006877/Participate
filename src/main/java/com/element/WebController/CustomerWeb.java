@@ -46,8 +46,8 @@ public class CustomerWeb {
 		
 		
 		
-		 
-                logger.debug("Vishal Tiwari! I am back");
+		System.out.println("Host keys in"); 
+                logger.debug("Vishal Tiwari!");
 	        logger.debug("getWelcome bhaag sale!");
 	        logger.debug("getWelcome!");
 	        
