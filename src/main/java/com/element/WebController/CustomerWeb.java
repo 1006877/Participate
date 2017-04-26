@@ -45,8 +45,8 @@ public class CustomerWeb {
     public  String home(){
 		
 		
-		
-		 logger.debug("Abhi!");
+		logger.debug("Vishal Tiwari!");
+		 logger.debug("Abhi hai kai sanhai!");
                 logger.debug("Vishal Tiwari!");
 	        logger.debug("getWelcome bhaag!");
 
