@@ -49,15 +49,7 @@ public class CustomerWeb {
 		 logger.debug("Abhi!");
                 logger.debug("Vishal Tiwari!");
 	        logger.debug("getWelcome bhaag!");
-<<<<<<< HEAD
-	        logger.debug("getWelcome bhai !");
-=======
-	        logger.debug("getWelcome! ajaa");
->>>>>>> branch 'feture-log' of https://github.com/1006877/Participate
-	        
-		
-		
-	
+
 	
 		return "home";
 		
