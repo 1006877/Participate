@@ -49,7 +49,7 @@ public class CustomerWeb {
 		 
                 logger.debug("Vishal Tiwari!");
 	        logger.debug("getWelcome bhaag!");
-	        logger.debug("getWelcome!");
+	        logger.debug("getWelcome! ajaa");
 	        
 		
 		
