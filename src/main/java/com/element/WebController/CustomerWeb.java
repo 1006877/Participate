@@ -45,10 +45,10 @@ public class CustomerWeb {
     public  String home(){
 		
 		
-		logger.debug("Vishal Tiwari!");
+		logger.debug("Vishal!");
 		
-                logger.debug("Vishal Tiwari!");
-	        logger.debug("getWelcome bhaag!");
+                logger.debug("Vishal!");
+	        logger.debug("getWelcome bhaag bhai!");
 
 	
 		return "home";
