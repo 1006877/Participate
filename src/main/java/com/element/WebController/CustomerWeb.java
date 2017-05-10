@@ -47,7 +47,11 @@ public class CustomerWeb {
 		
 		logger.debug("Vishal!");
 		
+<<<<<<< HEAD
                 logger.debug("Vishal  aja Tu!");
+=======
+                logger.debug("Vishal  aja Tu  bhai kaha hai!");
+>>>>>>> branch 'feture-log' of https://github.com/1006877/Participate
 	        logger.debug("getWelcom on  bhag bhai yaha se!");
 
 	
