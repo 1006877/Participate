@@ -64,9 +64,9 @@ public class CustomerWeb {
     public  String home1(){
   
 	logger.debug("getWelcome is executed!");		
-	logger.error("This is Error NO");
-		
-	
+	logger.error("The issue has been solved");
+   
+
 	
 		return "home";
 		
