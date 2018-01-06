@@ -4,9 +4,10 @@ import org.springframework.stereotype.Component;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.runtime.java.StepDefAnnotation;
 
 
-public class GlueCode {
+public class GlueCode{
 
 	@Given("^I have two numbers$")
 	public void I_have_two_numbers() throws Throwable {

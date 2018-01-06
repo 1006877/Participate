@@ -55,7 +55,7 @@
 			<version>${spring.security.version}</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
 			<version>1.1.5</version>
@@ -68,29 +68,51 @@
 			<version>1.1.5</version>
 			<scope>test</scope>
 		</dependency>
+		 -->
+		 
+		 <dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-core</artifactId>
+			<version>2.3.1</version>
+			<scope>test</scope>
+		</dependency>
+		 
+		 <dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>2.3.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.1.5</version>
+			<scope>test</scope>
+		</dependency> -->
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>info.cukes</groupId>
+			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>1.1.5</version>
+			<version>2.3.1</version>
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>info.cukes</groupId>
+		<!-- <dependency>
+			<groupId>io.cucumber</groupId>
 			<artifactId>gherkin</artifactId>
-			<version>2.12.1</version>
+			<version>2.12.2</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-jvm-deps</artifactId>
 			<version>1.0.3</version>
@@ -103,7 +125,7 @@
 			<version>1.1.5</version>
 			<scope>compile</scope>
 		</dependency>
-
+ -->
 		
 
 		
