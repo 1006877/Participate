@@ -21,15 +21,15 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 
-@Configuration
+/*@Configuration
 @PropertySource({"classpath:application.properties"})
 @ConfigurationProperties("spring.datasource_edb")
 @EnableJpaRepositories(
 		                basePackages="com.element.repository",
 		                entityManagerFactoryRef="edbEntityManager",
 		                transactionManagerRef="edbTransactionManager"
-		              )
-public class EdbConfig   {
+		              )*/
+public class EdbConfig   {/*
 
 	@Autowired
 	private Environment env;
@@ -69,18 +69,18 @@ public class EdbConfig   {
 		        return dataSource;
 
 
-	/*
+	
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 		EmbeddedDatabase db = builder
 			.setType(EmbeddedDatabaseType.HSQL) //.H2 or .DERBY
 			.addScript("db/sql/create-db.sql")
 			.addScript("db/sql/insert-data.sql")
 			.build();
-		return db;*/
+		return db;
 	}
 	
 
-	/*@Bean(name="datasourceEdb")
+	@Bean(name="datasourceEdb")
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource driverManagerDataSource= new DriverManagerDataSource();
 		driverManagerDataSource.setDriverClassName("com.sybase.jdbc3.jdbc.SybDriver");
@@ -89,7 +89,7 @@ public class EdbConfig   {
 		driverManagerDataSource.setUsername("gen_funding_auth");
 	    return driverManagerDataSource;
 	}
-	*/
+	
 	@Bean(name = "jdbcEdb")
     @Qualifier("datasourceEdb")
     public JdbcTemplate getEdbJdbcTemplate(DataSource datasourceEdb){
@@ -105,5 +105,5 @@ public class EdbConfig   {
 	
 	
 	
-}
+*/}
  

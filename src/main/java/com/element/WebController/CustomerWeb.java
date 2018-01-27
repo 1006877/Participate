@@ -120,14 +120,7 @@ public class CustomerWeb {
 	
 	 @RequestMapping(value="/customerSave" ,method=RequestMethod.POST)
 	    public @ResponseBody Users customerSave(@RequestBody Users user){
-		 user.setEnabled(true);
-	    
-		/* UserRoles userRole = new UserRoles();
-		 userRole.setUsername(user.getUsername());  
-		 userRole.setRole("ROLE_USER");
-		 user.setUserRoles(userRole);*/
 		
-		 user.setEnabled(true);
 		/* userRole.setUser_role_id(3);*/
 		
 		 
