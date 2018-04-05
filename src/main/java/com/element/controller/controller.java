@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.element.edb.entity.Users;
 import com.element.service.CustomerService;
+import com.element.serviceImpl.UserServiceImpl;
 
 @RestController
 @RequestMapping("tcs")
@@ -20,6 +22,9 @@ public class controller {
 	@Autowired
 	@Qualifier("customerServiceImpl")
 	private CustomerService customerService;
+	
+	@Autowired
+	private UserServiceImpl userServiceImpl;
 	
 	@RequestMapping(value="/getcustomer" ,method=RequestMethod.GET)
     public  List<Users> getCustomer(){
@@ -33,9 +38,9 @@ public class controller {
 	}
    
     
-    @RequestMapping(value="/getcustomerByName" ,method=RequestMethod.GET)
-    public Users getCustomerByName(@RequestParam String name){
-		return customerService.getCustomerByName(name);
+    @RequestMapping(value="/getcustomerByName/{id}/{name}" ,method=RequestMethod.GET)
+    public Users getCustomerByName(@PathVariable Integer id,@PathVariable String name){
+		return userServiceImpl.modifyUserNameById(id,name);
 		
 	}
    
