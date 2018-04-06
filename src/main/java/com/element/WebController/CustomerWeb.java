@@ -99,10 +99,17 @@ public class CustomerWeb {
 		model.addObject("title", "Spring Security Hello World");
 		model.addObject("message", "This is protected page - Database Page!");
 		model.setViewName("admin");
-
 		return model;
-
 	}
+	
+	@RequestMapping(value = "/ampView", method = RequestMethod.GET)
+	public ModelAndView ampView() {
+
+		ModelAndView model = new ModelAndView();
+		model.setViewName("amp.demo");
+		return model;
+	}
+	
 	
 	
 	

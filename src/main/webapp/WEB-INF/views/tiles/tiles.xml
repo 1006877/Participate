@@ -7,24 +7,25 @@
 
 <tiles-definitions>
 
-<definition name="home" extends="basic.home">
- 		<put-attribute name="body" value="/WEB-INF/views/Myjsp/AddUser.jsp" />
-</definition>
-	
-<definition name="hello" extends="basic.home">
- 		<put-attribute name="body" value="/WEB-INF/views/Myjsp/hello.jsp" />
-</definition>
-	
-<definition name="admin" extends="basic.home">
- 		<put-attribute name="body" value="/WEB-INF/views/Myjsp/admin.jsp" />
-</definition>
-		
+	<definition name="home" extends="basic.home">
+		<put-attribute name="body" value="/WEB-INF/views/Myjsp/AddUser.jsp" />
+	</definition>
 
-<definition name="basic.home" template="/WEB-INF/views/tiles/layout/BasicLayout.jsp">
+	<definition name="hello" extends="basic.home">
+		<put-attribute name="body" value="/WEB-INF/views/Myjsp/hello.jsp" />
+	</definition>
 
-<put-attribute name="body" value="" />
+	<definition name="admin" extends="basic.home">
+		<put-attribute name="body" value="/WEB-INF/views/Myjsp/admin.jsp" />
+	</definition>
 
- </definition>
- 
- 
- </tiles-definitions>
+
+	<definition name="basic.home"
+		template="/WEB-INF/views/tiles/layout/sBasicLayout.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<definition name="amp.demo" template="/WEB-INF/views/myHTML/amp.jsp">
+	</definition>
+
+</tiles-definitions>

@@ -9,6 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
@@ -22,7 +24,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
         basePackages="com.element.repository"
       )
 @ComponentScan(basePackages={"com.element"})
-public class ParticipateApplication {
+public class ParticipateApplication extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
 		
@@ -32,6 +34,10 @@ public class ParticipateApplication {
 	}
 	
 	
+	@Override
+	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+	    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	}
 	
 	@Bean
     public TilesConfigurer tilesConfigurer() {
